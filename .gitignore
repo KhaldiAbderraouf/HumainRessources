@@ -1,0 +1,10 @@
+__pycache__/
+.idea/
+.vscode/
+*.bak
+venv/
+.venv/
+env/
+*.sqlite3
+.env/
+*/migrations/
