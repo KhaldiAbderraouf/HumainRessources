@@ -13,12 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
+from django.views.generic import TemplateView
+
 from accounts.views import RegisterAPI, LoginAPI, UserViewSet
 from knox import views as knox_views
 from django.urls import path, include
 
 urlpatterns = [
+    url(r'^admin/stat/$', TemplateView.as_view(template_name='admin/index.html')),
     path('admin/', admin.site.urls),
     path('api/register/', RegisterAPI.as_view(), name='register'),
     path('api/users/', UserViewSet.as_view(), name='users'),
